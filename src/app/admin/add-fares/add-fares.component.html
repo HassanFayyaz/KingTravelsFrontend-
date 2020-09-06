@@ -1,0 +1,33 @@
+ <nz-card style="width:90%; margin-left: 5%;" nzTitle="Add Fares" >
+                <label><b>Departure Date</b></label>
+                <input nz-input type="date" placeholder="Departure Date" [(ngModel)]="value" required />
+                <br> <br>
+                <label><b>Arrival Date</b></label>
+                <input nz-input type="date" placeholder="Arrival Date" [(ngModel)]="value" required />
+                <br> <br>
+                <label><b>Amount</b></label>
+                <input nz-input type="number" placeholder="Amount" [(ngModel)]="value" required />
+                <br> <br>
+                <label><b>Discout</b></label>
+                <input nz-input type="number" placeholder="Discout" [(ngModel)]="value" required/>
+                <br> <br>
+                <label><b>Category</b></label>
+                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Category" [(ngModel)]="selectedValue">
+                    <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+                    <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+                    <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+                  </nz-select>
+                  <br> <br>
+              <label><b>Is Active : </b></label>
+              <br>
+              <nz-radio-group [(ngModel)]="radioValue">
+                <label nz-radio nzValue="True">True</label>
+                <label nz-radio nzValue="False">False</label>
+              </nz-radio-group>
+              <br>
+              <br>
+
+              <button style="width: 15%;" nz-button nzType="primary" nzDanger>Add Fares</button>
+
+              </nz-card>
+              

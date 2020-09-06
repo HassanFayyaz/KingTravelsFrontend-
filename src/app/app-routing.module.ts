@@ -15,8 +15,8 @@ const routes: Routes = [
   {path: 'news',component:NewsComponent},
   {path: 'offer',component:OfferComponent},
   {path:'element',component:ElementsComponent},
-  {path:'error',component:ErrorComponent}
- 
+  {path:'error',component:ErrorComponent},
+  {path:'admin',loadChildren: () => import('../app/admin/admin.module').then(m => m.AdminModule)}
 
 
 
