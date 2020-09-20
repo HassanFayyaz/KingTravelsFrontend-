@@ -1,33 +1,108 @@
- <nz-card style="width:90%; margin-left: 5%;" nzTitle="Add Fares" >
-                <label><b>Departure Date</b></label>
-                <input nz-input type="date" placeholder="Departure Date" [(ngModel)]="value" required />
-                <br> <br>
-                <label><b>Arrival Date</b></label>
-                <input nz-input type="date" placeholder="Arrival Date" [(ngModel)]="value" required />
-                <br> <br>
-                <label><b>Amount</b></label>
-                <input nz-input type="number" placeholder="Amount" [(ngModel)]="value" required />
-                <br> <br>
-                <label><b>Discout</b></label>
-                <input nz-input type="number" placeholder="Discout" [(ngModel)]="value" required/>
-                <br> <br>
-                <label><b>Category</b></label>
-                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Category" [(ngModel)]="selectedValue">
-                    <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-                    <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-                    <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
-                  </nz-select>
-                  <br> <br>
-              <label><b>Is Active : </b></label>
-              <br>
-              <nz-radio-group [(ngModel)]="radioValue">
-                <label nz-radio nzValue="True">True</label>
-                <label nz-radio nzValue="False">False</label>
-              </nz-radio-group>
-              <br>
-              <br>
+<nz-card style="width: 100%" nzTitle="Add/Edit Travel Fares ">
+  <form #myForm="ngForm">
 
-              <button style="width: 15%;" nz-button nzType="primary" nzDanger>Add Fares</button>
+  <label><b>Departure From</b><span style="color: red">*</span></label>
+  <input
+    nz-input
+    type="text"
+    placeholder="Departure From"
+    name="departureFrom"
+    [(ngModel)]="travelFairs.departureFrom"
+    required
+  />
+  <br />
+  <br />
+  <label><b>Arrival To</b><span style="color: red">*</span></label>
+  <input
+    nz-input
+    type="text"
+    placeholder="Departure To"
+    name="arrivalTo"
+    [(ngModel)]="travelFairs.arrivalTo"
+    required
+  />
+  <br />
+  <br />
+  <label><b>Departure Date</b><span style="color: red">*</span></label>
+  <input
+    nz-input
+    type="date"
+    placeholder="Departure Date"
+    name="departureDate"
+    [(ngModel)]="travelFairs.departureDate"
+    required
+  />
+  <br />
+  <br />
+  <label><b>Arrival Date</b><span style="color: red">*</span></label>
+  <input
+    nz-input
+    type="date"
+    placeholder="Arrival Date"
+    name="arrivalDate"
+    [(ngModel)]="travelFairs.arrivalDate"
+    required
+  />
+  <br />
+  <br />
+  <label><b>Amount (in dollars)</b><span style="color: red">*</span></label>
+  <input
+    nz-input
+    type="number"
+    placeholder="$400"
+    name="amount"
+    [(ngModel)]="travelFairs.amount"
+    required
+  />
+  <br />
+  <br />
+  <label
+    ><b>Discout</b><span style="color: lightslategray">(optional)</span></label
+  >
+  <input
+    nz-input
+    type="number"
+    placeholder="Discout"
+    name="discount"
+    [(ngModel)]="travelFairs.discount"
+  />
+  <br />
+  <br />
+  <label><b>Category</b><span style="color: red">*</span></label>
+  <nz-select
+    required
+    nzShowSearch
+    name="category"
+    nzAllowClear
+    nzPlaceHolder="Select a Category"
+    [(ngModel)]="travelFairs.travelFairsCategories"
+  >
+  <nz-option *ngFor="let p of categories" [nzValue]="p" [nzLabel]="p.category"></nz-option>
 
-              </nz-card>
-              
+  </nz-select>
+  <br />
+  <br />
+  <label
+    ><b>Is Active : <span style="color: red">*</span></b></label
+  >
+  <br />
+  <nz-radio-group name="active"[(ngModel)]="travelFairs.active">
+    <label nz-radio nzValue="True">True</label>
+    <label nz-radio nzValue="False">False</label>
+  </nz-radio-group>
+  <br />
+  <br />
+
+  <button
+    (click)="save()"  
+    [disabled]="myForm.invalid && !travelFairs.travelFairsCategories"
+    style="width: 15%"
+    nz-button
+    nzType="primary"
+    nzDanger
+  >
+    Add Fares
+  </button>
+      
+</form>
+</nz-card>

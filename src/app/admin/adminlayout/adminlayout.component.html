@@ -1,22 +1,22 @@
 <nz-layout>
     <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
       <div class="logo"></div>
-      <ul nz-menu nzTheme="dark" nzMode="inline">
+      <ul nz-menu nzTheme="dark" style="background:#131a2f" nzMode="inline">
         <li nz-submenu nzTitle="Fares" nzIcon="user">
           <ul>
             <li [routerLink]="'addfares'" nz-menu-item>Add Fares</li>
-            <li nz-menu-item>View Fares</li>
+            <li nz-menu-item [routerLink]="'viewfares'" >View Fares</li>
           </ul>
         </li>
-        <li nz-submenu nzTitle="Team" nzIcon="team">
+        <li nz-submenu nzTitle="Category" nzIcon="team">
           <ul>
-            <li nz-menu-item>Team 1</li>
-            <li nz-menu-item>Team 2</li>
+            <li nz-menu-item>Add Travel Category</li>
+            <li nz-menu-item>View Categories</li>
           </ul>
         </li>
-        <li nz-menu-item>
-          <i nz-icon nzType="file"></i>
-          <span>File</span>
+        <li nz-menu-item nzTitle="Category" nzIcon="logout">
+          <i nz-icon nzType></i>
+          <span  [routerLink]="''" >Logout</span>
         </li>
       </ul>
     </nz-sider>

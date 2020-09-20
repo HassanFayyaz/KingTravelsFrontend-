@@ -13,6 +13,7 @@
   .logo {
     height: 32px;
     background: rgba(255, 255, 255, 0.2);
+    /* background-image:url('https://www.kings-travels.com/wp-content/uploads/2019/02/kings-p.png'); */
     margin: 16px;
   }
 
@@ -30,12 +31,19 @@
   }
 
   .inner-content {
-    padding: 24px;
+    padding: 14px;
     background: #fff;
-    min-height: 360px;
+    min-height: 100%;
   }
 
   nz-footer {
     text-align: center;
   }
   
+  nz-sider{
+    background:#740000 !important ;
+  }
+
+  nz-layout{
+    height: 100%;
+  }

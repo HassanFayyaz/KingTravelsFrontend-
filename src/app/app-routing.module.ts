@@ -1,3 +1,5 @@
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { LoginPageComponent } from './admin/login-page/login-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -16,7 +18,9 @@ const routes: Routes = [
   {path: 'offer',component:OfferComponent},
   {path:'element',component:ElementsComponent},
   {path:'error',component:ErrorComponent},
-  {path:'admin',loadChildren: () => import('../app/admin/admin.module').then(m => m.AdminModule)}
+  {path:'login',component:LoginPageComponent},
+   {path:'admin',loadChildren: () => import('../app/admin/admin.module').then(m => m.AdminModule)},
+   {path:'**',component:ErrorPageComponent}
 
 
 

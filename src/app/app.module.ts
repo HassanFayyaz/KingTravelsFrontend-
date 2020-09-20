@@ -12,12 +12,15 @@ import { ElementsComponent } from './elements/elements.component';
 import { ErrorComponent } from './error/error.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NzResultModule } from 'ng-zorro-antd/result';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 
@@ -33,13 +36,15 @@ registerLocaleData(en);
     NewsComponent,
     ContactComponent,
     ElementsComponent,
-    ErrorComponent
+    ErrorComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    NzResultModule,
     BrowserAnimationsModule,
     NzLayoutModule
   ],
