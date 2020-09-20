@@ -9,7 +9,7 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import {FormsModule} from '@angular/forms';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzIconModule } from 'ng-zorro-antd/icon';
@@ -40,7 +40,8 @@ import { ViewTravelFaresComponent } from './view-travel-fares/view-travel-fares.
     NzCardModule,
     NzSelectModule,
     NzRadioModule,
-    NzButtonModule
+    NzButtonModule,
+    ReactiveFormsModule
     ],
     
 })

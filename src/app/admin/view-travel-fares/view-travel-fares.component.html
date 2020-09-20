@@ -9,7 +9,7 @@
 					</div>
 					<div class="col-sm-6">
 						<a  class="btn btn-info" style="background-color:#131a2f" data-toggle="modal">
-                            <span>Add New Employee</span>
+                            <span>Add New Fares</span>
                         </a>
 					</div>
 				</div>
@@ -18,20 +18,28 @@
 				<thead>
 					<tr>
                         <!-- <th></th> -->
-						<th>Name</th>
-						<th>Email</th>
-						<th>Address</th>
-						<th>Phone</th>
-						<th>Actions</th>
+						<th>Departure From</th>
+						<th>Arrival To</th>
+						<th>Departure Date</th>
+						<th>Arrival Date</th>
+						<th>Amount (in dollars)</th>
+						<th>Discout(optional)</th>
+						<th>Category</th>
+						<th>Active</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						
-						<td>Thomas Hardy</td>
-						<td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
-						<td>(171) 555-2222</td>
+						<td>Pakistan</td>
+						<td>USA</td>
+						<td>20/9/2020</td>
+						<td>21/9/2020</td>
+						<td>700</td>
+						<td>10</td>
+						<td>Premium</td>
+						<td>True</td>
 						<td>
 							<a class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 							<a nz-popconfirm
@@ -42,63 +50,84 @@
 						</td>
 					</tr>
 					<tr>
-					
-						<td>Dominique Perrier</td>
-						<td>dominiqueperrier@mail.com</td>
-						<td>Obere Str. 57, Berlin, Germany</td>
-						<td>(313) 555-5735</td>
+						
+						<td>Pakistan</td>
+						<td>UK</td>
+						<td>20/9/2020</td>
+						<td>21/9/2020</td>
+						<td>600</td>
+						<td>10</td>
+						<td>Business</td>
+						<td>True</td>
 						<td>
-							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+							<a class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a nz-popconfirm
+                            nzPopconfirmTitle="Are you sure delete this task?"
+                            (nzOnConfirm)="confirmDelete()"
+                            (nzOnCancel)="cancel()"
+                            nzPopconfirmPlacement="topLeft" class="delete" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
 					</tr>
 					<tr>
 						
-						<td>Maria Anders</td>
-						<td>mariaanders@mail.com</td>
-						<td>25, rue Lauriston, Paris, France</td>
-						<td>(503) 555-9931</td>
+						<td>Pakistan</td>
+						<td>Canada</td>
+						<td>20/9/2020</td>
+						<td>21/9/2020</td>
+						<td>800</td>
+						<td>10</td>
+						<td>Premium</td>
+						<td>True</td>
 						<td>
-							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+							<a class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a nz-popconfirm
+                            nzPopconfirmTitle="Are you sure delete this task?"
+                            (nzOnConfirm)="confirmDelete()"
+                            (nzOnCancel)="cancel()"
+                            nzPopconfirmPlacement="topLeft" class="delete" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
 					</tr>
 					<tr>
 						
-						<td>Fran Wilson</td>
-						<td>franwilson@mail.com</td>
-						<td>C/ Araquil, 67, Madrid, Spain</td>
-						<td>(204) 619-5731</td>
+						<td>Pakistan</td>
+						<td>Germany</td>
+						<td>20/9/2020</td>
+						<td>21/9/2020</td>
+						<td>1000</td>
+						<td>10</td>
+						<td>Economy</td>
+						<td>True</td>
 						<td>
-							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+							<a class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a nz-popconfirm
+                            nzPopconfirmTitle="Are you sure delete this task?"
+                            (nzOnConfirm)="confirmDelete()"
+                            (nzOnCancel)="cancel()"
+                            nzPopconfirmPlacement="topLeft" class="delete" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
-					</tr>					
+					</tr>
 					<tr>
 						
-						<td>Martin Blank</td>
-						<td>martinblank@mail.com</td>
-						<td>Via Monte Bianco 34, Turin, Italy</td>
-						<td>(480) 631-2097</td>
+						<td>Pakistan</td>
+						<td>USA</td>
+						<td>20/9/2020</td>
+						<td>21/9/2020</td>
+						<td>700</td>
+						<td>10</td>
+						<td>Premium</td>
+						<td>True</td>
 						<td>
-							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+							<a class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a nz-popconfirm
+                            nzPopconfirmTitle="Are you sure delete this task?"
+                            (nzOnConfirm)="confirmDelete()"
+                            (nzOnCancel)="cancel()"
+                            nzPopconfirmPlacement="topLeft" class="delete" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
-					</tr> 
+					</tr>
 				</tbody>
 			</table>
-			<div class="clearfix">
-				<div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-				<ul class="pagination">
-					<li class="page-item disabled"><a href="#">Previous</a></li>
-					<li class="page-item"><a href="#" class="page-link">1</a></li>
-					<li class="page-item"><a href="#" class="page-link">2</a></li>
-					<li class="page-item"><a href="#" class="page-link">3</a></li>
-					<li class="page-item"><a href="#" class="page-link">4</a></li>
-					<li class="page-item"><a href="#" class="page-link">5</a></li>
-					<li class="page-item"><a href="#" class="page-link">Next</a></li>
-				</ul>
-			</div>
+		
 		</div>
 	</div>        
 </div>
