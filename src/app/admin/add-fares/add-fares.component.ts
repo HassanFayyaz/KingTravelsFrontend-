@@ -3,7 +3,7 @@ import { TravelFairService } from './travel-fair.service';
 import { TravelFairs } from './Fair';
 // import { AddFair } from './addFair';
 import {FormControl, NgForm} from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder,FormGroup,FormArray } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd';
 
@@ -16,6 +16,7 @@ import { NzMessageService } from 'ng-zorro-antd';
 export class AddFaresComponent implements OnInit {
   travelFairs:TravelFairs = new TravelFairs();
   categories: any = [];
+  @ViewChild('myFrom') myFrom:NgForm;
   
   constructor(private fairService:TravelFairService,private fb: FormBuilder,private message: NzMessageService) {
    
@@ -27,20 +28,44 @@ export class AddFaresComponent implements OnInit {
 
  
 
+  travelFairDto :any={}
   travelFairsCategories=[]
   save(myForm){
-
     console.log(this.travelFairs)
-    console.log(myForm)
-    // this.fairService.saveFair(this.travelFairs).subscribe(res=>{
+    this.travelFairDto = this.travelFairs;
+    this.travelFairDto.travelFairsCategories = this.travelFairsCategories;
+    console.log(myForm);
+    const keys = Object.keys(myForm);
+    let  cateogryId = 0;
+    let makeObject = {}
+    if (keys.length > 0) {
+      keys.map((everyKey) => {
 
-    //   this.message.success('Fairs Successfully saved successfully', {
-    //     nzDuration: 3000
-    //   });
-    //   this.emptyFields();
-      
-    // })
-  }
+        cateogryId = parseInt(everyKey.split('-')[0]);
+       let foundObj = this.categories.find(category=>category.id==cateogryId);
+
+       if(foundObj!=undefined){
+        let price = myForm[everyKey];
+        makeObject = {};
+         makeObject = {
+         travelFairsCategories : foundObj,
+         price : price 
+        }
+        this.travelFairsCategories.push(makeObject);   
+       }
+      });
+    }
+    this.travelFairDto.travelFairsCategories = this.travelFairsCategories;
+    this.fairService.saveFair(this.travelFairDto).subscribe(res=>{
+        if(res){
+          this.message.success('Fair Added Successfully');
+          this.emptyFields();
+          this.myFrom.resetForm();
+          
+        }
+    })
+    
+}
 
   emptyFields(){
     this.travelFairs.active=null;
