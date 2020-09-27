@@ -24,7 +24,7 @@ export class TravelFairService {
 
   }
   getAllCategories():Observable<any>{
-    return this.http.get(this.repo_url+"fairCategory");
+    return this.http.get(this.controller_url+"categories");
   }
 
 
