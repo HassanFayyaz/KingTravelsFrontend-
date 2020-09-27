@@ -1,106 +1,62 @@
 <nz-card style="width: 100%" nzTitle="Add/Edit Travel Fares ">
-  <form #myForm="ngForm">
+  <form>
 
     <label><b>Departure From</b><span style="color: red">*</span></label>
     <input nz-input type="text" placeholder="Departure From" name="departureFrom"
-      [(ngModel)]="travelFairs.departureFrom" required />
+       required />
     <br />
     <br />
     <label><b>Arrival To</b><span style="color: red">*</span></label>
-    <input nz-input type="text" placeholder="Departure To" name="arrivalTo" [(ngModel)]="travelFairs.arrivalTo"
+    <input nz-input type="text" placeholder="Departure To" name="arrivalTo" 
       required />
     <br />
     <br />
     <label><b>Departure Date</b><span style="color: red">*</span></label>
     <input nz-input type="date" placeholder="Departure Date" name="departureDate"
-      [(ngModel)]="travelFairs.departureDate" required />
+       required />
     <br />
     <br />
     <label><b>Arrival Date</b><span style="color: red">*</span></label>
-    <input nz-input type="date" placeholder="Arrival Date" name="arrivalDate" [(ngModel)]="travelFairs.arrivalDate"
+    <input nz-input type="date" placeholder="Arrival Date" name="arrivalDate" 
       required />
     <br />
     <br />
     <label><b>Amount (in dollars)</b><span style="color: red">*</span></label>
-    <input nz-input type="number" placeholder="$400" name="amount" [(ngModel)]="travelFairs.amount" required />
+    <input nz-input type="number" placeholder="$400" name="amount"  required />
     <br />
     <br />
     <label><b>Discout</b><span style="color: lightslategray">(optional)</span></label>
-    <input nz-input type="number" placeholder="Discout" name="discount" [(ngModel)]="travelFairs.discount" />
+    <input nz-input type="number" placeholder="Discout" name="discount"  />
     <br />
     <br />
 
-    <!-- <label><b>Category</b><span style="color: red">*</span></label>
-  <nz-select
-    required
-    nzShowSearch
-    name="category"
-    nzAllowClear
-    nzPlaceHolder="Select a Category"
-    (ngModel)="selected" 
-    (change)="addControlsInFormArray()"
-    
-  >
-  <nz-option *ngFor="let p of categories" [nzValue]="p" [nzLabel]="p.category"></nz-option>
-  <nz-option nzValue="1" nzLabel="Economy">Economy</nz-option>
-  <nz-option nzValue="2" nzLabel="Premium">Premium</nz-option>
-  <nz-option nzValue="3" nzLabel="Bussiness">Bussiness</nz-option>
-  <nz-option nzValue="4" nzLabel="Luxury">Luxury</nz-option>
+  
 
-  </nz-select>
-
-  <form [formGroup]="fg">
-		<div formArrayName="inputs" *ngFor="let item of fg.get('inputs')['controls']; let i = index;">
-			<div [formGroupName]="i">
-				<input
-    nz-input
-    type="number"
-    placeholder="$400"
-    name="amount"
-    formControlName="question" 
-    required
-  />
-			</div>
-		</div>
-  </form> -->
 
     <label>Category</label>
-    <nz-select name="category" [(ngModel)]="selected" (ngModelChange)="addControlsInFormArray()">
+    <nz-select name="category">
       <nz-option nzValue="1" nzLabel="Economy">Economy</nz-option>
       <nz-option nzValue="2" nzLabel="Premium">Premium</nz-option>
       <nz-option nzValue="3" nzLabel="Bussiness">Bussiness</nz-option>
       <nz-option nzValue="4" nzLabel="Luxury">Luxury</nz-option>
     </nz-select>
     <br>
-    <br>
-
-
-    <form [formGroup]="fg">
-      <div formArrayName="inputs" *ngFor="let item of fg.get('inputs')['controls']; let i = index;">
-        <div [formGroupName]="i">
-          <label>Price {{selected}}:</label>
-
-          <input nz-input formControlName="question" placeholder="Price" value="">
-        </div>
-      </div>
-    </form>
-
-    <br />
-    <br />
+ 
     <label><b>Is Active : <span style="color: red">*</span></b></label>
     <br />
-    <nz-radio-group name="active" [(ngModel)]="travelFairs.active">
+    <nz-radio-group name="active">
       <label nz-radio nzValue="True">True</label>
       <label nz-radio nzValue="False">False</label>
     </nz-radio-group>
     <br />
-    <br />
+    
 
 
-    <button (click)="save()" [disabled]="myForm.invalid && !travelFairs.travelFairsCategories" style="width: 15%"
+    <button (click)="save()" style="width: 15%;margin-top: 10px;"
       nz-button nzType="primary" nzDanger>
       Add Fares
     </button>
-
   </form>
+
+ 
 </nz-card>
