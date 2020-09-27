@@ -21,11 +21,13 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { AddFaresComponent } from './add-fares/add-fares.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ViewTravelFaresComponent } from './view-travel-fares/view-travel-fares.component';
+import { AddcategoryComponent } from './addcategory/addcategory.component';
+import { ViewcategoryComponent } from './viewcategory/viewcategory.component';
 
 
 
 @NgModule({
-  declarations: [AdminlayoutComponent, AddFaresComponent, LoginPageComponent, ViewTravelFaresComponent],
+  declarations: [AdminlayoutComponent, AddFaresComponent, LoginPageComponent, ViewTravelFaresComponent, AddcategoryComponent, ViewcategoryComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

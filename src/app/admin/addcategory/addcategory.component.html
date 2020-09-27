@@ -1,0 +1,19 @@
+<nz-card style="width: 100%" nzTitle="Add/Edit Category ">
+    <form>
+  
+      <label><b>Category</b><span style="color: red">*</span></label>
+      <input nz-input type="text" [(ngModel)]="categoryObj.category" placeholder ="Category" name="category"
+         required />
+      
+    
+      
+  
+  
+      <button  style="width: 15%;margin-top: 20px; float: right;"
+        nz-button (click)="saveCategory()" nzType="primary" nzDanger>
+        Save Category
+      </button>
+    </form>
+  
+   
+  </nz-card>

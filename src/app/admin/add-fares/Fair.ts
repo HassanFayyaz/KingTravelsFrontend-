@@ -1,10 +1,11 @@
 export class TravelFairs {
-     id?:Number;
+    
      departureFrom:String;
      arrivalTo:String;
      departureDate:String;
      arrivalDate:String;
      amount:Number;
+     price:Number;
      discount:Number;
      active:Number;
      travelFairsCategories:{};

@@ -27,26 +27,38 @@ export class AddFaresComponent implements OnInit {
 
  
 
+  travelFairsCategories=[]
+  save(myForm){
 
-  save(){
+    console.log(this.travelFairs)
+    console.log(myForm)
+    // this.fairService.saveFair(this.travelFairs).subscribe(res=>{
+
+    //   this.message.success('Fairs Successfully saved successfully', {
+    //     nzDuration: 3000
+    //   });
+    //   this.emptyFields();
+      
+    // })
+  }
+
+  emptyFields(){
+    this.travelFairs.active=null;
+    this.travelFairs.amount=null;
+    this.travelFairs.arrivalDate="";
+    this.travelFairs.arrivalTo="";
+    this.travelFairs.departureDate="";
+    this.travelFairs.departureFrom="";
+    this.travelFairs.discount=null;
+    this.travelFairs.price=null;
     
-
   }
 
   getAllCategoies(){
-    this.fairService.getAllCategories().subscribe((res=>{
-      console.log(res);
-      if(res){
-        const {_embedded } = res;
-        
-        this.categories = _embedded.category;
-        this.categories.forEach(element => {
-            delete element['_links']
-        });
-        
-        console.log(this.categories)
-      }
-    }))
-  }
+    this.fairService.getAllCategories().subscribe(d=>{
+      console.log("RES",d)
+      this.categories=d.result
+    })
 
+}
 }
