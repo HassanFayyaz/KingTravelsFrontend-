@@ -13,6 +13,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   fares = [];
+  categoryArray=[];
   constructor(
     private router: Router,
     private activeRoute: ActivatedRoute,
@@ -56,6 +57,10 @@ export class HomeComponent implements OnInit {
               })
             }
             else {
+              obj.active = '';
+              obj.id = '';
+              obj.travelFairs = '';
+              obj.categories = [];
               obj.active = element.active,
               obj.id = element.id;
               obj.travelFairs = element.travelFairs;
@@ -67,15 +72,17 @@ export class HomeComponent implements OnInit {
 
               this.fares.push(obj)
             }
-              console.log("=========================",this.fares)
            
+          
           }
+          console.log("=========================",this.fares)
 
         })
 
       }
 
     })
+  
   }
 
 
