@@ -2,3 +2,7 @@
 body{
     font-family: 'Montserrat', sans-serif !important;
 }
+
+.modal-dialog {
+    left: 0% !important;
+}

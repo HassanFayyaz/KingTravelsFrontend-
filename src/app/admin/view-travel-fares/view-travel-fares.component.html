@@ -37,9 +37,10 @@
 						<td>{{data.arrivalDate}}</td>
 						<td>{{data.amount}}</td>
 						<td>{{data.discount}}</td>
-						<td>{{data.active}}</td>
+						<td *ngIf="data.active==true"><span class="badge badge-success">{{data.active}}</span></td>
+						<td *ngIf="data.active==false"><span class="badge badge-danger">{{data.active}}</span></td>
 						<td>
-							<a class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a class="edit" (click)="edit(data.id)"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 							<a nz-popconfirm
                             nzPopconfirmTitle="Are you sure delete this task?"
                             (nzOnConfirm)="confirmDelete()"

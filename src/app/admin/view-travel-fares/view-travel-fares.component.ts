@@ -1,3 +1,4 @@
+import { TravelFairs } from './../add-fares/Fair';
 import { Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd';
 import { TravelFairService } from './../add-fares/travel-fair.service';
@@ -41,7 +42,12 @@ export class ViewTravelFaresComponent implements OnInit {
       });
      }
       
-    })
+  })
+  }
+
+  edit(id){
+    console.log(id);
+    this.router.navigate(['admin/addfares/',id]);
   }
 
 }

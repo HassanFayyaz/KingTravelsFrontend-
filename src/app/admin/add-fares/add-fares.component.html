@@ -41,10 +41,10 @@
      <form #myForm="ngForm">
       <div nz-row *ngFor="let data of categories;let i=index">
         <div nz-col nzSpan="24">
-          <label><b>{{data.category}} </b>(in $)</label>
-          <input nz-input type="number" ngModel placeholder="Price in $" name="{{data.id+'-'+i}}"  />
+          <label><b>{{data.category}} Class </b>(in $)</label>
+          <input nz-input type="number" [(ngModel)]="data.price" style="margin-bottom:14px !important" ngModel placeholder="Price in $" name="{{data.id+'-'+i}}"  />
         </div>
-        <br>
+      
       </div>
 
     <br>

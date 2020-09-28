@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { TravelFairService } from './travel-fair.service';
 import { TravelFairs } from './Fair';
@@ -17,15 +18,48 @@ export class AddFaresComponent implements OnInit {
   travelFairs:TravelFairs = new TravelFairs();
   categories: any = [];
   @ViewChild('myFrom') myFrom:NgForm;
+  travelFareId:any; 
   
-  constructor(private fairService:TravelFairService,private fb: FormBuilder,private message: NzMessageService) {
+  constructor(private fairService:TravelFairService,private fb: FormBuilder,private message: NzMessageService,private activatedRoute:ActivatedRoute,private router:Router) {
    
    }
 
   ngOnInit(): void {
-    this.getAllCategoies();
+    this.getEditFair();
+    if(this.travelFareId==undefined){
+      this.getAllCategoies();
+    }
+    
   }
-
+ 
+  getEditFair(){
+   this.travelFareId = this.activatedRoute.snapshot.params['id'];
+   if(this.travelFareId!=undefined){
+    this.fairService.editFair(this.travelFareId).subscribe(res=>{
+      if(res.status==200){
+       console.log("RES",res)
+       this.travelFairs = res.result?res.result[0].travelFairs:null;
+       this.travelFairs.active = res.active;
+       
+       res.result.map((el)=>{
+          if(el.travelFairsCategory){
+              const {travelFairsCategory} = el;
+              const {price} = el;
+              let obj = {
+                category : travelFairsCategory.category,
+                id : travelFairsCategory.id,
+                price : price
+              }
+              this.categories.push(obj);
+          }
+       })
+       
+ 
+     }
+ })
+   }
+  
+  }
  
 
   travelFairDto :any={}
@@ -57,14 +91,18 @@ export class AddFaresComponent implements OnInit {
     }
     this.travelFairDto.travelFairsCategories = this.travelFairsCategories;
     console.log(this.travelFairDto)
+    this.travelFairDto.id = this.travelFareId
     this.fairService.saveFair(this.travelFairDto).subscribe(res=>{
         if(res){
           this.message.success('Fair Added Successfully');
           this.emptyFields();
-          this.myFrom.resetForm();
+          // this.myFrom.reset();
+          this.router.navigate(['admin/viewfares'])
           
         }
-    })
+    }),error=>{
+      this.message.error('Failed')
+    }
     
 }
 

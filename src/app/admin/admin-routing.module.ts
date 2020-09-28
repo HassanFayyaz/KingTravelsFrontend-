@@ -11,6 +11,7 @@ const routes: Routes = [
   {path:'',component: AdminlayoutComponent, children : [
 
     {path:'',component:ViewTravelFaresComponent},
+    {path:'addfares/:id',component:AddFaresComponent},
     {path:'addfares',component:AddFaresComponent},
     {path:'viewfares',component:ViewTravelFaresComponent},
     {path:'addcategory',component:AddcategoryComponent},

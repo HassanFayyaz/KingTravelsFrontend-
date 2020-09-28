@@ -35,5 +35,8 @@ export class TravelFairService {
     return this.http.get(this.controller_url+"get")
   }
 
+  public editFair(id):Observable<any>{
+    return this.http.get(this.controller_url+'get/'+id)
+  }
 
 }
