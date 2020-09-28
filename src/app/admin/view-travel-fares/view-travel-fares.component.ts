@@ -1,3 +1,7 @@
+import { TravelFairs } from './../add-fares/Fair';
+import { Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd';
+import { TravelFairService } from './../add-fares/travel-fair.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewTravelFaresComponent implements OnInit {
 
-  constructor() { }
+  faresArray:any=[];
+  constructor(private fairService:TravelFairService,private message: NzMessageService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getAllFares();
   }
 
   confirmDelete(){
@@ -17,6 +23,31 @@ export class ViewTravelFaresComponent implements OnInit {
   }
   cancel(){
     
+  }
+  goToAddFares(){
+    this.router.navigate(['admin/addfares'])
+  }
+  getAllFares(){
+    this.fairService.getAllFares().subscribe(res=>{
+      console.log(res)
+      if(res.status==200){
+      this.faresArray=res.result;
+      this.message.success('Fares successfully Get', {
+        nzDuration: 3000
+      });
+     }
+     else{
+      this.message.loading('Error', {
+        nzDuration: 3000
+      });
+     }
+      
+  })
+  }
+
+  edit(id){
+    console.log(id);
+    this.router.navigate(['admin/addfares/',id]);
   }
 
 }

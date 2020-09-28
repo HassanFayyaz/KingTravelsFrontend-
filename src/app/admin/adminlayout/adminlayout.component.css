@@ -16,6 +16,13 @@
     /* background-image:url('https://www.kings-travels.com/wp-content/uploads/2019/02/kings-p.png'); */
     margin: 16px;
   }
+  .logo{
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+
+  }
 
   nz-header {
     background: #fff;
