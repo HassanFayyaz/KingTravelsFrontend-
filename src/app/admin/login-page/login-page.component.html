@@ -1,0 +1,16 @@
+<div id="fullscreen_bg" class="fullscreen_bg">
+
+<div class="container">
+
+	<form #form="ngForm" class="form-signin" (ngSubmit)="submit(form.value)">
+		<h1 class="form-signin-heading text-muted">Sign In</h1>
+		<input type="text" name="email"  class="form-control"  placeholder="Email address" required ngModel autofocus="">
+		<input type="password" name="password" ngModel class="form-control" placeholder="Password" required="">
+		<button class="btn btn-lg btn-primary btn-block" type="submit">
+			Sign In
+		</button>
+	</form>
+
+</div>
+
+<router-outlet></router-outlet>

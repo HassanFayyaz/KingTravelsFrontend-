@@ -1,0 +1,62 @@
+<nz-card style="width: 100%" nzTitle="Add/Edit Travel Fares ">
+  <form>
+
+    <label><b>Departure From</b><span style="color: red">*</span></label>
+    <input nz-input type="text" placeholder="Departure From" name="departureFrom"
+       required />
+    <br />
+    <br />
+    <label><b>Arrival To</b><span style="color: red">*</span></label>
+    <input nz-input type="text" placeholder="Departure To" name="arrivalTo" 
+      required />
+    <br />
+    <br />
+    <label><b>Departure Date</b><span style="color: red">*</span></label>
+    <input nz-input type="date" placeholder="Departure Date" name="departureDate"
+       required />
+    <br />
+    <br />
+    <label><b>Arrival Date</b><span style="color: red">*</span></label>
+    <input nz-input type="date" placeholder="Arrival Date" name="arrivalDate" 
+      required />
+    <br />
+    <br />
+    <label><b>Amount (in dollars)</b><span style="color: red">*</span></label>
+    <input nz-input type="number" placeholder="$400" name="amount"  required />
+    <br />
+    <br />
+    <label><b>Discout</b><span style="color: lightslategray">(optional)</span></label>
+    <input nz-input type="number" placeholder="Discout" name="discount"  />
+    <br />
+    <br />
+
+  
+
+
+    <label>Category</label>
+    <nz-select name="category">
+      <nz-option nzValue="1" nzLabel="Economy">Economy</nz-option>
+      <nz-option nzValue="2" nzLabel="Premium">Premium</nz-option>
+      <nz-option nzValue="3" nzLabel="Bussiness">Bussiness</nz-option>
+      <nz-option nzValue="4" nzLabel="Luxury">Luxury</nz-option>
+    </nz-select>
+    <br>
+ 
+    <label><b>Is Active : <span style="color: red">*</span></b></label>
+    <br />
+    <nz-radio-group name="active">
+      <label nz-radio nzValue="True">True</label>
+      <label nz-radio nzValue="False">False</label>
+    </nz-radio-group>
+    <br />
+    
+
+
+    <button (click)="save()" style="width: 15%;margin-top: 10px;"
+      nz-button nzType="primary" nzDanger>
+      Add Fares
+    </button>
+  </form>
+
+ 
+</nz-card>

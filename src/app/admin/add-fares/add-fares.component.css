@@ -1,0 +1,19 @@
+.ant-card-head{
+  background: #903333bd !important;
+  color: white !important;
+}
+
+nz-select {
+    width: 100%;
+  }
+  
+  [nz-button] {
+    margin-right: 8px;
+    margin-bottom: 12px;
+  }
+
+  /* nz-card{
+    box-shadow:         3px 3px 5px 6px rgb(241, 232, 232);
+  } */
+
+ 

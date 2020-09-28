@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  routeName = "home"
+  constructor(private router:Router,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+      if(this.activatedRoute.snapshot.routeConfig.path!="" && this.activatedRoute.snapshot.routeConfig.path!=null){
+        this.routeName = this.activatedRoute.snapshot.routeConfig.path;
+      }
+      else{
+        this.routeName = "home"
+      }
   }
 
 }
