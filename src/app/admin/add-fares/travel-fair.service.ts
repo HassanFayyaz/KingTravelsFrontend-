@@ -32,7 +32,7 @@ export class TravelFairService {
   }
 
   public getAllTravelFaresAndCategory():Observable<any>{
-    return this.http.get(this.controller_url+"/get")
+    return this.http.get(this.controller_url+"get")
   }
 
 
