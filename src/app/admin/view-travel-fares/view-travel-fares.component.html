@@ -8,7 +8,7 @@
 						<h2>All Flight Fairs</h2>
 					</div>
 					<div class="col-sm-6">
-						<a  class="btn btn-info" style="background-color:#131a2f" data-toggle="modal">
+						<a  class="btn btn-info" (click)="goToAddFares()" style="background-color:#131a2f" data-toggle="modal">
                             <span>Add New Fares</span>
                         </a>
 					</div>
@@ -23,23 +23,21 @@
 						<th>Departure Date</th>
 						<th>Arrival Date</th>
 						<th>Amount (in dollars)</th>
-						<th>Discout(optional)</th>
-						<th>Category</th>
+						<th>Discount(optional)</th>
 						<th>Active</th>
 						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
+					<tr *ngFor="let data of faresArray">
 						
-						<td>Pakistan</td>
-						<td>USA</td>
-						<td>20/9/2020</td>
-						<td>21/9/2020</td>
-						<td>700</td>
-						<td>10</td>
-						<td>Premium</td>
-						<td>True</td>
+						<td>{{data.departureFrom}}</td>
+						<td>{{data.arrivalTo}}</td>
+						<td>{{data.departureDate}}</td>
+						<td>{{data.arrivalDate}}</td>
+						<td>{{data.amount}}</td>
+						<td>{{data.discount}}</td>
+						<td>{{data.active}}</td>
 						<td>
 							<a class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 							<a nz-popconfirm
@@ -49,7 +47,7 @@
                             nzPopconfirmPlacement="topLeft" class="delete" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
 					</tr>
-					<tr>
+					<!-- <tr>
 						
 						<td>Pakistan</td>
 						<td>UK</td>
@@ -124,7 +122,7 @@
                             (nzOnCancel)="cancel()"
                             nzPopconfirmPlacement="topLeft" class="delete" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
-					</tr>
+					</tr> -->
 				</tbody>
 			</table>
 		

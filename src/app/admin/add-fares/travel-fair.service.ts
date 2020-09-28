@@ -19,12 +19,20 @@ export class TravelFairService {
     return this.http.get(this.repo_url+"fair");
   }
 
+  public getAllFares():Observable<any>{
+    return this.http.get(this.controller_url+"fair")
+  }
+
   saveTravelCategory(object:any){
     return this.http.post(this.controller_url+"fairCategory",object);
 
   }
   getAllCategories():Observable<any>{
     return this.http.get(this.controller_url+"categories");
+  }
+
+  public getAllTravelFaresAndCategory():Observable<any>{
+    return this.http.get(this.controller_url+"/get")
   }
 
 

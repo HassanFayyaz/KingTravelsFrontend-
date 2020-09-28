@@ -32,20 +32,27 @@ export class ViewcategoryComponent implements OnInit {
     
   }
 
-  getAllCategories(){
-    this.fairService.getAllCategories().subscribe((res=>{
-      console.log(res);
-      if(res){
-        const {_embedded } = res;
-        
-        this.categories = _embedded.category;
-        this.categories.forEach(element => {
-            delete element['_links']
-        });
-        
-        console.log(this.categories)
-      }
-    }))
+  goToAddCategory(){
+    this.router.navigate(['admin/addcategory'])
   }
+
+  getAllCategories(){
+    this.fairService.getAllCategories().subscribe(res=>{
+     console.log(res)
+     if(res.status==200){
+       this.categories=res.result;
+       this.message.success('Categories successfully Get', {
+        nzDuration: 3000
+      });
+     }
+     else{
+      this.message.loading('Error', {
+        nzDuration: 3000
+      });
+     }
+  
+  })
+}
+
 
 }

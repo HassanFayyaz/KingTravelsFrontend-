@@ -48,7 +48,7 @@ export class AddFaresComponent implements OnInit {
         let price = myForm[everyKey];
         makeObject = {};
          makeObject = {
-         travelFairsCategories : foundObj,
+         id : foundObj.id,
          price : price 
         }
         this.travelFairsCategories.push(makeObject);   
@@ -56,6 +56,7 @@ export class AddFaresComponent implements OnInit {
       });
     }
     this.travelFairDto.travelFairsCategories = this.travelFairsCategories;
+    console.log(this.travelFairDto)
     this.fairService.saveFair(this.travelFairDto).subscribe(res=>{
         if(res){
           this.message.success('Fair Added Successfully');
@@ -86,4 +87,6 @@ export class AddFaresComponent implements OnInit {
     })
 
 }
+
+
 }

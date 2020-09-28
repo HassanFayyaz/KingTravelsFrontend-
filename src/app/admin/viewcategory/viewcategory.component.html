@@ -7,7 +7,7 @@
 						<h2>All Flight Fairs</h2>
 					</div>
 					<div class="col-sm-6">
-						<a  class="btn btn-info" style="background-color:#131a2f" data-toggle="modal">
+						<a  class="btn btn-info" (click)="goToAddCategory()" style="background-color:#131a2f" data-toggle="modal">
                             <span>Add New Category</span>
                         </a>
 					</div>
@@ -25,6 +25,7 @@
 				</thead>
 				<tbody>
 					<tr *ngFor="let data of categories"  >
+						
 						<td>{{data.category}}</td>
 						
 						<td style="text-align: right;">
