@@ -28,12 +28,7 @@ export class HomeComponent implements OnInit {
 
 
   getAll() {
-    let obj = {
-      active: '',
-      id: '',
-      travelFairs: '',
-      categories: []
-    }
+    
     this.fairService.getAllTravelFaresAndCategory().subscribe(d => {
 
       if (d.status == 200) {
@@ -57,10 +52,12 @@ export class HomeComponent implements OnInit {
               })
             }
             else {
-              obj.active = '';
-              obj.id = '';
-              obj.travelFairs = '';
-              obj.categories = [];
+              let obj = {
+                active: '',
+                id: '',
+                travelFairs: '',
+                categories: []
+              }
               obj.active = element.active,
               obj.id = element.id;
               obj.travelFairs = element.travelFairs;

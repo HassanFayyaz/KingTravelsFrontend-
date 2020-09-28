@@ -134,20 +134,24 @@
 						<div class="item clearfix rating_5"*ngFor="let data of fares">
 							<div class="item_image"><img src="assets/images/top_1.jpg" alt=""></div>
 							<div class="item_content" >
-								<div class="item_price">Starting from {{data.travelFairs.amount}}$</div>
-								
+								<div class="item_price"><span style="font-size: x-large;">S</span>tarting from <span style="font-size: x-large;">{{data.travelFairs.amount}}$</span></div>
+								<div>
+									<span class="badge badge-dark"  style="background-color:#36292b78;margin-bottom: 10px;
+									padding: 6px;font-size: x-small;">Discount available {{data?.travelFairs?.discount}}$</span>
+								</div>
 								<div class="item_title">{{data.travelFairs.arrivalTo}}, {{data.travelFairs.departureFrom}}</div>
 	
 								<div style="margin-top:10px" class="item_price"><span>Departure Date : </span><span style="color:#878c9b">{{data.travelFairs.departureDate}}</span></div>
 								
 								<div style="margin-top:10px" class="item_price"><span >Arrival Date : </span><span style="color:#878c9b">{{data.travelFairs.arrivalDate}}</span></div>
 								
-								
 							
 								<div *ngFor="let d of data.categories">
 									<span class="badge badge-info"  style="background-color:#fe435b;margin-top: 11px;
 									padding: 10px;font-size: initial;">{{d.name}} Class : {{d.price}}$</span>								
 								</div>
+
+							
 								<!-- <div class="item_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla lectus nec diam auctor, ut fringilla diam sagittis. Quisque vel est id justo faucibus dapibus id a nibh. Aenean suscipit consequat lacus, sit amet mollis nulla. Morbi sagittis orci id lacus convallis tempus eget sit amet metus.</div>
 								<div class="item_more_link"><a href="#">Read More</a></div> -->
 							</div>
