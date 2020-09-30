@@ -13,7 +13,9 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   fares = [];
-  categoryArray=[];
+  categoryArray = [];
+  from: any;
+  to: any;
   constructor(
     private router: Router,
     private activeRoute: ActivatedRoute,
@@ -28,7 +30,7 @@ export class HomeComponent implements OnInit {
 
 
   getAll() {
-    
+
     this.fairService.getAllTravelFaresAndCategory().subscribe(d => {
 
       if (d.status == 200) {
@@ -43,7 +45,7 @@ export class HomeComponent implements OnInit {
               return obj.travelFairs.id == element.travelFairs.id
             })
 
-            if (foundObj!=-1) {
+            if (foundObj != -1) {
               //found object men se categories nkalo
               this.fares[foundObj].categories.push({
                 price: element.price,
@@ -59,7 +61,7 @@ export class HomeComponent implements OnInit {
                 categories: []
               }
               obj.active = element.active,
-              obj.id = element.id;
+                obj.id = element.id;
               obj.travelFairs = element.travelFairs;
               obj.categories.push({
                 price: element.price,
@@ -69,19 +71,59 @@ export class HomeComponent implements OnInit {
 
               this.fares.push(obj)
             }
-           
-          
+
+
           }
-          console.log("=========================",this.fares)
+          console.log("=========================", this.fares)
 
         })
 
       }
+      this.backUpArray = this.fares;
+
 
     })
-  
+
   }
 
+  found=false;
+  backUpArray = []
+  search() {
+    
+    this.found = true;
+    if (this.from != null && this.to != null) {
+      this.fares = this.fares.filter((value) => {
+        return value.travelFairs.departureFrom.toUpperCase() == this.from.toUpperCase() && value.travelFairs.arrivalTo.toUpperCase() == this.to.toUpperCase()
+      })
+      if (!this.fares) {
+        this.fares = this.backUpArray;
+      }
+    }
+    if (this.from != null && this.to == null) {
+      this.fares = this.fares.filter((value) => {
+        return value.travelFairs.departureFrom.toUpperCase() == this.from.toUpperCase()
+      })
+      if (!this.fares) {
+        this.fares = this.backUpArray;
+      }
+    }
+    if (this.from == null && this.to != null) {
+      this.fares = this.fares.filter((value) => {
+        return value.travelFairs.arrivalTo.toUpperCase() == this.to.toUpperCase()
+      })
+      if (!this.fares) {
+        this.fares = this.backUpArray;
+      }
+    }
+    if(this.from==null && this.to==null){
+      this.fares = this.backUpArray;
+    }
+
+    setTimeout(()=>{
+      this.found = false;
+    },2000)
+
+  }
 
 
 }

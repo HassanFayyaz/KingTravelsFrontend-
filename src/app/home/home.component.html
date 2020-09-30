@@ -19,13 +19,13 @@
 								src="assets/images/search_2.png" alt=""></button>
 					</form>
 				</div>
-				<ul class="menu_list menu_mm">
+				<!-- <ul class="menu_list menu_mm">
 					<li class="menu_item menu_mm"><a href="#">Home</a></li>
 					<li class="menu_item menu_mm"><a href="about.html">About us</a></li>
 					<li class="menu_item menu_mm"><a>Offers</a></li>
 					<li class="menu_item menu_mm"><a href="#">News</a></li>
 					<li class="menu_item menu_mm"><a href="contact.html">Contact</a></li>
-				</ul>
+				</ul> -->
 
 				<!-- Menu Social -->
 
@@ -80,12 +80,13 @@
 							class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
 							<div class="find_item">
 								<div>From:</div>
-								<input type="text" class="destination find_input" required="required"
+								<input type="text" name="from" ngModel [(ngModel)]="from" class="destination find_input" required="required"
 									placeholder="Keyword here">
 							</div>
+							
 							<div class="find_item">
 								<div>To:</div>
-								<input type="text" class="destination find_input" required="required"
+								<input type="text"  name="to" ngModel [(ngModel)]="to" class="destination find_input" required="required"
 									placeholder="Keyword here">
 							</div>
 
@@ -113,8 +114,40 @@
 									<option>Price</option>
 								</select>
 							</div> -->
-							<button class="button find_button">Find</button>
+							<button (click)="search()" class="button find_button"> <i *ngIf="found" style="margin-right: 9px !important;" class="fa fa-refresh fa-spin"></i>Find</button>
+							
 						</form>
+						
+						<!--<div class="row">
+							<div class="col-md-5 offset-md-4">
+								<div class="spinner-grow text-primary" role="status">
+									<span class="sr-only">Loading...</span>
+								  </div>
+								  <div class="spinner-grow text-secondary" role="status">
+									<span class="sr-only">Loading...</span>
+								  </div>
+								  <div class="spinner-grow text-success" role="status">
+									<span class="sr-only">Loading...</span>
+								  </div>
+								  <div class="spinner-grow text-danger" role="status">
+									<span class="sr-only">Loading...</span>
+								  </div>
+								  <div class="spinner-grow text-warning" role="status">
+									<span class="sr-only">Loading...</span>
+								  </div>
+								  <div class="spinner-grow text-info" role="status">
+									<span class="sr-only">Loading...</span>
+								  </div>
+								  <div class="spinner-grow text-light" role="status">
+									<span class="sr-only">Loading...</span>
+								  </div>
+								  <div class="spinner-grow text-dark" role="status">
+									<span class="sr-only">Loading...</span>
+								  </div>
+							</div>
+
+						
+						</div>-->
 					</div>
 				</div>
 			</div>
@@ -149,8 +182,8 @@
 									<span class="badge badge-dark" style="background-color:#36292b78;margin-bottom: 10px;
 									padding: 6px;font-size: x-small;">Discount available {{data?.travelFairs?.discount}}$</span>
 								</div>
-								<div class="item_title">{{data.travelFairs.arrivalTo}},
-									{{data.travelFairs.departureFrom}}</div>
+								<div class="item_title">{{data.travelFairs.departureFrom}},
+									{{data.travelFairs.arrivalTo}}</div>
 
 								<div style="margin-top:10px" class="item_price"><span>Departure Date : </span><span
 										style="color:#878c9b">{{data.travelFairs.departureDate}}</span></div>
@@ -629,7 +662,7 @@
 						<!-- Logo -->
 						<div class="logo_container">
 							<div class="logo">
-								<div>destino</div>
+								<div>King's Travel</div>
 								<div>travel agency</div>
 								<div class="logo_image"><img src="assets/images/logo.png" alt=""></div>
 							</div>
